@@ -14,9 +14,6 @@
 }
 
 .label {
-  /* display: flex;
-  flex-direction: column;
-  gap: 8px; */
   display: block;
   margin-bottom: 8px;
   width: 100%;
@@ -79,7 +76,7 @@
   background-color: #407bff;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link {
@@ -90,4 +87,13 @@
 }
 
 @media (min-width: 768px) {
+  .form {
+    width: 336px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .form {
+    width: 384px;
+  }
 }

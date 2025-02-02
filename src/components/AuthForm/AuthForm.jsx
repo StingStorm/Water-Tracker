@@ -1,14 +1,17 @@
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import css from "./AuthForm.module.css";
-// import { useDispatch } from "react-redux";
+import { signUp } from "../../redux/auth/operations.js";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import Icon from "../ui/Icon";
+import css from "./AuthForm.module.css";
 
 const initialValues = {
-  name: "",
   email: "",
   password: "",
+  confirmPassword: "",
 };
 
 const RegisterUserSchema = Yup.object({
@@ -24,17 +27,46 @@ const RegisterUserSchema = Yup.object({
 });
 
 const AuthForm = () => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] =
+    useState(false);
+
+  const handleSubmit = (values, actions) => {
+    console.log("values: ", values);
+    dispatch(signUp(values))
+      .unwrap()
+      .then(() => {
+        // Success toast
+        toast.success("Registration successful!");
+        navigate("/home");
+      })
+      .catch(() => {
+        // Error toast
+        toast.error("Registration error!");
+      });
+    actions.resetForm();
+  };
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
   };
 
+  const toggleConfirmPasswordVisibility = () => {
+    setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
+  };
+
   return (
-    <Formik initialValues={initialValues} validationSchema={RegisterUserSchema}>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={RegisterUserSchema}
+      onSubmit={handleSubmit}
+    >
       <Form className={css.form}>
         <h2 className={css.title}>Sign Up</h2>
+
+        {/* Поле Email */}
         <label className={css.label}>
           <span>Enter your email</span>
           <Field
@@ -50,6 +82,7 @@ const AuthForm = () => {
           />
         </label>
 
+        {/* Поле Password */}
         <label className={css.label}>
           <span>Enter your password</span>
           <div className={css.passwordField}>
@@ -79,18 +112,19 @@ const AuthForm = () => {
           />
         </label>
 
+        {/* Поле Confirm Password */}
         <label className={css.label}>
           <span>Repeat password</span>
           <div className={css.passwordField}>
             <Field
-              type={isPasswordVisible ? "text" : "password"}
+              type={isConfirmPasswordVisible ? "text" : "password"}
               name="confirmPassword"
               className={css.input}
               placeholder="Repeat password"
             />
             <button
               type="button"
-              onClick={togglePasswordVisibility}
+              onClick={toggleConfirmPasswordVisibility}
               className={css.eyeButton}
               aria-label={isPasswordVisible ? "Hide password" : "Show password"}
             >
@@ -111,9 +145,9 @@ const AuthForm = () => {
           Sign Up
         </button>
         <div>
-          <a href="/signin" className={css.link}>
+          <Link to="/signin" className={css.link}>
             Sign in
-          </a>
+          </Link>
         </div>
       </Form>
     </Formik>
