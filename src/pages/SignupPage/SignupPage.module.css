@@ -1,0 +1,78 @@
+.background {
+  background-image: url(../../assets/images/signin/bubbles_signin_mobile_1x.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: contain;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  position: fixed;
+  margin-top: 24px;
+}
+
+.bottle {
+  background-image: url(../../assets/images/signin/bottle_signin_mobile_1x.png);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: contain;
+  width: 280px;
+  height: 210px;
+  margin-top: -25px;
+}
+
+@media (min-resolution: 192dpi),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .background {
+    background-image: url(../../assets/images/signin/bubbles_signin_mobile_2x.png);
+  }
+  .bottle {
+    background-image: url(../../assets/images/signin/bottle_signin_mobile_2x.png);
+  }
+}
+
+@media (min-width: 768px) {
+  .background {
+    background-image: url(../../assets/images/signin/bubbles_signin_tablet_1x.png);
+  }
+  .bottle {
+    background-image: url(../../assets/images/signin/bottle_signin_tablet_1x.png);
+  }
+
+  @media (min-resolution: 192dpi),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .background {
+      background-image: url(../../assets/images/signin/bubbles_signin_tablet_2x.png);
+    }
+    .bottle {
+      background-image: url(../../assets/images/signin/bottle_signin_tablet_2x.png);
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .background {
+    width: 1440px;
+    margin-top: -12px;
+    position: relative;
+    background-image: url(../../assets/images/bubbles_desktop_any_1x.png);
+  }
+  .bottle {
+    width: 865px;
+    height: 680px;
+    background-image: url(../../assets/images/signin/bottle_signin_desktop_1x.png);
+  }
+
+  @media (min-resolution: 192dpi),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .background {
+      background-image: url(../../assets/images/bubbles_desktop_any_2x.png);
+    }
+    .bottle {
+      background-image: url(../../assets/images/signin/bottle_signin_desktop_2x.png);
+    }
+  }
+}
