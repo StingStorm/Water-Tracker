@@ -1,7 +1,7 @@
 const Icon = ({
   name,
   fill = 'transparent',
-  stroke = 'currentColor',
+  stroke,
   width = 24,
   height = 24,
 }) => {
