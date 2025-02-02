@@ -1,0 +1,93 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: start;
+  width: 280px;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.23;
+  color: var(--primary-color-black);
+}
+
+.label {
+  /* display: flex;
+  flex-direction: column;
+  gap: 8px; */
+  display: block;
+  margin-bottom: 8px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33;
+}
+
+.input {
+  padding: 12px 10px;
+  margin-top: 5px;
+  font-size: 16px;
+  border: 1px solid var(--secondary-color-light-blue200);
+  border-radius: 6px;
+  color: var(--primary-color-blue);
+  outline: none;
+  width: 100%;
+  transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--secondary-color-light-blue300);
+}
+
+.passwordField {
+  position: relative;
+}
+
+.eyeButton {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--primary-color-blue);
+}
+
+.errorMessage {
+  color: var(--secondary-color-red);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.btn {
+  width: 100%;
+  padding: 8px 30px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  background-color: #407bff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
+  transition: background-color 0.3s ease;
+}
+
+.link {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--primary-color-blue);
+}
+
+@media (min-width: 768px) {
+}
