@@ -63,93 +63,107 @@ const AuthForm = () => {
       validationSchema={RegisterUserSchema}
       onSubmit={handleSubmit}
     >
-      <Form className={css.form}>
-        <h2 className={css.title}>Sign Up</h2>
+      {({ errors, touched }) => (
+        <Form className={css.form}>
+          <h2 className={css.title}>Sign Up</h2>
 
-        {/* Поле Email */}
-        <label className={css.label}>
-          <span>Enter your email</span>
-          <Field
-            type="text"
-            name="email"
-            className={css.input}
-            placeholder="E-mail"
-          />
-          <ErrorMessage
-            className={css.errorMessage}
-            name="email"
-            component="span"
-          />
-        </label>
-
-        {/* Поле Password */}
-        <label className={css.label}>
-          <span>Enter your password</span>
-          <div className={css.passwordField}>
+          {/* Поле Email */}
+          <label className={css.label}>
+            <span>Enter your email</span>
             <Field
-              type={isPasswordVisible ? "text" : "password"}
+              type="text"
+              name="email"
+              className={`${css.input} ${
+                errors.email && touched.email ? css.inputError : ""
+              }`}
+              placeholder="E-mail"
+            />
+            <ErrorMessage
+              className={css.errorMessage}
+              name="email"
+              component="span"
+            />
+          </label>
+
+          {/* Поле Password */}
+          <label className={css.label}>
+            <span>Enter your password</span>
+            <div className={css.passwordField}>
+              <Field
+                type={isPasswordVisible ? "text" : "password"}
+                name="password"
+                className={`${css.input} ${
+                  errors.password && touched.password ? css.inputError : ""
+                }`}
+                placeholder="Password"
+              />
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                className={css.eyeButton}
+                aria-label={
+                  isPasswordVisible ? "Hide password" : "Show password"
+                }
+              >
+                {isPasswordVisible ? (
+                  <Icon name={"icon-eye"} width={16} height={16} />
+                ) : (
+                  <Icon name={"icon-eye-slash"} width={16} height={16} />
+                )}
+              </button>
+            </div>
+            <ErrorMessage
+              className={css.errorMessage}
               name="password"
-              className={css.input}
-              placeholder="Password"
+              component="span"
             />
-            <button
-              type="button"
-              onClick={togglePasswordVisibility}
-              className={css.eyeButton}
-              aria-label={isPasswordVisible ? "Hide password" : "Show password"}
-            >
-              {isPasswordVisible ? (
-                <Icon name={"icon-eye"} width={16} height={16} />
-              ) : (
-                <Icon name={"icon-eye-slash"} width={16} height={16} />
-              )}
-            </button>
-          </div>
-          <ErrorMessage
-            className={css.errorMessage}
-            name="password"
-            component="span"
-          />
-        </label>
+          </label>
 
-        {/* Поле Confirm Password */}
-        <label className={css.label}>
-          <span>Repeat password</span>
-          <div className={css.passwordField}>
-            <Field
-              type={isConfirmPasswordVisible ? "text" : "password"}
+          {/* Поле Confirm Password */}
+          <label className={css.label}>
+            <span>Repeat password</span>
+            <div className={css.passwordField}>
+              <Field
+                type={isConfirmPasswordVisible ? "text" : "password"}
+                name="confirmPassword"
+                className={`${css.input} ${
+                  errors.confirmPassword && touched.confirmPassword
+                    ? css.inputError
+                    : ""
+                }`}
+                placeholder="Repeat password"
+              />
+              <button
+                type="button"
+                onClick={toggleConfirmPasswordVisibility}
+                className={css.eyeButton}
+                aria-label={
+                  isPasswordVisible ? "Hide password" : "Show password"
+                }
+              >
+                {isPasswordVisible ? (
+                  <Icon name={"icon-eye"} width={16} height={16} />
+                ) : (
+                  <Icon name={"icon-eye-slash"} width={16} height={16} />
+                )}
+              </button>
+            </div>
+            <ErrorMessage
+              className={css.errorMessage}
               name="confirmPassword"
-              className={css.input}
-              placeholder="Repeat password"
+              component="span"
             />
-            <button
-              type="button"
-              onClick={toggleConfirmPasswordVisibility}
-              className={css.eyeButton}
-              aria-label={isPasswordVisible ? "Hide password" : "Show password"}
-            >
-              {isPasswordVisible ? (
-                <Icon name={"icon-eye"} width={16} height={16} />
-              ) : (
-                <Icon name={"icon-eye-slash"} width={16} height={16} />
-              )}
-            </button>
+          </label>
+          <button type="submit" className={css.btn}>
+            Sign Up
+          </button>
+          <div>
+            <Link to="/signin" className={css.link}>
+              Sign in
+            </Link>
           </div>
-          <ErrorMessage
-            className={css.errorMessage}
-            name="confirmPassword"
-            component="span"
-          />
-        </label>
-        <button type="submit" className={css.btn}>
-          Sign Up
-        </button>
-        <div>
-          <Link to="/signin" className={css.link}>
-            Sign in
-          </Link>
-        </div>
-      </Form>
+        </Form>
+      )}
     </Formik>
   );
 };
