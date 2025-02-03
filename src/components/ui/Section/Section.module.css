@@ -1,0 +1,10 @@
+.sectionWelcome {
+  background-image: url('../../../assets/images/welcome/backgr_welcome_tablet_1x.png');
+  background-repeat: no-repeat;
+}
+.sectionHome {
+  background-image: url('../../../assets/images/home/bottle_home_desktop_1x.png');
+}
+.sectionAuth {
+  background-image: url('../../../assets/images/signin/bottle_signin_desktop_1x.png');
+}
