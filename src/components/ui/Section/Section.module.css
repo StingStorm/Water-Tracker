@@ -1,10 +1,63 @@
 .sectionWelcome {
-  background-image: url('../../../assets/images/welcome/backgr_welcome_tablet_1x.png');
+  background-image: url("../../../assets/images/welcome/backgr_welcome_tablet_1x.png");
   background-repeat: no-repeat;
 }
+
 .sectionHome {
-  background-image: url('../../../assets/images/home/bottle_home_desktop_1x.png');
+  background-image: image-set(
+      url("../../../assets/images/home/bottle_home_mobile_1x.png") 1x,
+      url("../../../assets/images/home/bottle_home_mobile_2x.png") 2x
+    ),
+    image-set(
+      url("../../../assets/images/home/bubbles_home_mobile_1x.png") 1x,
+      url("../../../assets/images/home/bubbles_home_mobile_2x.png") 2x
+    );
+  background-size: 280px 208px, auto;
+  background-position: left 50% top 104px, left 50% top 52px;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  padding-top: 24px;
+  padding-bottom: 40px;
 }
+
 .sectionAuth {
-  background-image: url('../../../assets/images/signin/bottle_signin_desktop_1x.png');
+  background-image: url("../../../assets/images/signin/bottle_signin_desktop_1x.png");
+}
+
+/* ========== TABLET ========*/
+
+@media screen and (min-width: 768px) {
+  .sectionHome {
+    background-image: image-set(
+        url("../../../assets/images/home/bottle_home_tablet_1x.png") 1x,
+        url("../../../assets/images/home/bottle_home_tablet_2x.png") 2x
+      ),
+      image-set(
+        url("../../../assets/images/home/bubbles_home_tablet_1x.png") 1x,
+        url("../../../assets/images/home/bubbles_home_tablet_2x.png") 2x
+      );
+    background-position: left 50% top 38px, left 50% top 24px;
+    background-size: 518px 386px, auto;
+    padding-top: 40px;
+    padding-bottom: 44px;
+  }
+}
+
+/* ========== DESKTOP ========*/
+
+@media screen and (min-width: 1440px) {
+  .sectionHome {
+    background-image: 
+      image-set(
+        url("../../../assets/images/home/bottle_home_desktop_1x.png") 1x,
+        url("../../../assets/images/home/bottle_home_desktop_2x.png") 2x
+      ), image-set(
+        url("../../../assets/images/bubbles_desktop_any_1x.png") 1x,
+        url("../../../assets/images/bubbles_desktop_any_2x.png") 2x
+      );
+    background-position:  left calc(50% - 310px) top 6px, left 50% top 34px;
+    background-size:  738px 548px, auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
 }

@@ -1,0 +1,182 @@
+.waterRatioPanelСontainer {
+  position: relative;
+  display: flex;
+}
+
+@media screen and (max-width: 767px) {
+  .waterRatioPanelСontainer {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.title {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33;
+  color: var(--primary-color-blue);
+  margin-bottom: 14px;
+}
+
+.progressBar {
+  position: relative;
+  height: 8px;
+  margin: 0 14px 0 10px;
+  background-color: #d7e3ff;
+  border-radius: 10px;
+}
+
+.ratioPanelWrapp {
+  position: relative;
+  height: 8px;
+  border-radius: 10px;
+}
+
+.ratioPanelFill {
+  height: 8px;
+  border-radius: 10px;
+}
+
+.thumb {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--primary-color-blue);
+  border-radius: 50%;
+  background-color: var(--primary-color-white);
+  transform: translate(-50%, -50%);
+}
+
+.percentNumber {
+  position: absolute;
+  bottom: 140%;
+  /* right: 0; */
+  font-size: 12px;
+  transform: translateX(-50%);
+}
+
+.persentContainer {
+  position: relative;
+  width: 280px;
+}
+
+.percentWrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+.percent {
+  font-size: 12px;
+  color: var(--primary-color-blue);
+}
+
+.markWrap {
+  position: absolute;
+  left: 9px;
+  top: -12px;
+  width: 256px;
+}
+
+.mark {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 8px;
+  background-color: var(--secondary-color-light-blue200);
+}
+
+.btn {
+  border-radius: 10px;
+  padding: 6px 76px;
+  width: 280px;
+  box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.3);
+  background-color: var(--primary-color-blue);
+  font-weight: 500;
+  color: #ffffff;
+  outline: transparent;
+  border: transparent;
+  transition: box-shadow var(--primary-transition);
+}
+
+.btn:hover,
+.btn:focus {
+  box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
+}
+
+.btn:active {
+  box-shadow: none;
+}
+
+/* ========== TABLET ========*/
+
+@media screen and (min-width: 768px) {
+  .waterRatioPanelСontainer {
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .title {
+    margin-bottom: 16px;
+  }
+
+  .progressBar {
+    width: 325px;
+    margin: 0 20px 0 11px;
+  }
+
+  .persentContainer {
+    width: 350px;
+    left: 2px;
+  }
+
+  .markWrap {
+    position: absolute;
+    left: 9px;
+    top: -12px;
+    width: 325px;
+  }
+
+  .mark {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 8px;
+    background-color: var(--secondary-color-light-blue200);
+  }
+
+  .btn {
+    padding: 10px 104px;
+    width: 336px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+/* ========== DESKTOP ========*/
+
+@media screen and (min-width: 1440px) {
+  .waterRatioPanelСontainer {
+    gap: 23px;
+    width: 592px;
+  }
+
+  .progressBar {
+    width: 360px;
+  }
+
+  .persentContainer {
+    width: 388px;
+  }
+
+  .markWrap {
+    width: 360px;
+  }
+
+  .btn {
+    padding: 10px 30px;
+    width: 178px;
+  }
+}
