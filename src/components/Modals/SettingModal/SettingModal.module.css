@@ -1,0 +1,236 @@
+.overlaySettingModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow-y: scroll;
+
+    @media screen and (min-width: 768px) {
+        overflow-y: hidden;
+    }
+}
+
+.settingModalWrapper {
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    transform: translate(-50%);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 12px;
+    border-radius: 10px;
+    width: 280px;
+    height: auto;
+    gap: 24px;
+    font-weight: 500;
+    line-height: 1.20;
+    color: var(--primary-color-black);
+    background-color: var(--primary-color-white);
+
+    @media screen and (min-width: 768px) {
+        padding: 32px 24px;
+        width: 704px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        top: 50%;
+        width: 1008px;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.errorMessage {
+    display: block;
+    padding-top: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.18;
+    color: var(--secondary-color-red);
+}
+
+.fontOne {
+    font-size: 18px;
+}
+
+.fontTwo {
+    font-weight: 400;
+}
+
+.input {
+    margin-top: 8px;
+    box-sizing: border-box;
+    padding: 12px 10px;
+    width: 256px;
+    height: 44px;
+    border: 1px solid var(--secondary-color-light-blue200);
+    border-radius: 6px;
+    font-weight: 400;
+    color: var(--primary-color-blue);
+
+    @media screen and (min-width: 768px) {
+        width: 392px;
+    }
+
+    @media screen and (min-width: 1440px) {}
+}
+
+.input:focus {
+    outline: none;
+}
+
+.input::placeholder {
+    color: var(--secondary-color-light-blue300);
+}
+
+.inputError {
+    border: 1px solid var(--secondary-color-red);
+    color: var(--secondary-color-red);
+}
+
+.modalTitle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.title {
+    font-size: 26px;
+    line-height: 1.32;
+}
+
+.closeBtn {
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    text-decoration: none;
+    align-items: center;
+    cursor: pointer;
+}
+
+.yourPhotoWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 222px;
+}
+
+.uploadWrapper {
+    display: flex;
+    gap: 8px;
+    height: 80px;
+    align-items: center;
+}
+
+.userPhoto {
+    width: 80px;
+    height: 80px;
+    align-items: center;
+    border-radius: 50%;
+    text-align: center;
+    object-fit: cover;
+    font-size: 65px;
+    color: var(--primary-color-white);
+    background-color: var(--secondary-color-light-blue200);
+}
+
+.uploadBtn {
+    display: flex;
+    gap: 8px;
+    max-height: 18px;
+    font-size: 14px;
+    line-height: 1.18;
+    cursor: pointer;
+    stroke: var(--primary-color-blue);
+    color: var(--primary-color-blue);
+}
+
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @media screen and (min-width: 1440px) {
+        flex-direction: row;
+    }
+}
+
+.yourName {
+    @media screen and (min-width: 1440px) {
+        margin-top: 23px;
+    }
+}
+
+.formOneWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.radio {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.formTwoWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @media screen and (min-width: 1440px) {
+        width: 600px;
+    }
+}
+
+.eye {
+    position: absolute;
+    right: 20px;
+    margin-top: 22px;
+    cursor: pointer;
+    stroke: var(--primary-color-blue);
+
+    @media screen and (min-width: 768px) {
+        right: 300px;
+    }
+
+    @media screen and (min-width: 1440px) {
+        right: 190px;
+    }
+
+}
+
+.saveBtn {
+    border: none;
+    min-width: 256px;
+    min-height: 36px;
+    border-radius: 10px;
+    align-items: center;
+    margin-top: 12px;
+    cursor: pointer;
+    color: var(--primary-color-white);
+    background-color: var(--primary-color-blue);
+    box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+
+    @media screen and (min-width: 768px) {
+        min-width: 160px;
+        min-height: 44px;
+        padding: 10px 30px;
+        margin-left: auto;
+    }
+}
+
+.saveBtn:hover {
+    box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
+}
+
+.saveBtn:active {
+    box-shadow: none;
+}

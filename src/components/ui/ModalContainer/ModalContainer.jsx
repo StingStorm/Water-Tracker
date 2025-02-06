@@ -15,8 +15,7 @@ const ModalContainer = ({
       isOpen={isOpen}
       className={className}
       overlayClassName={overlayClassName}
-      onRequestClose={onClose}
-    >
+      onRequestClose={onClose}>
       {children}
     </Modal>
   );
