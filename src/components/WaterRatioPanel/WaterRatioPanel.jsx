@@ -3,7 +3,7 @@
 
 import css from "./WaterRatioPanel.module.css";
 
-const WaterRatioPanel = () => {
+const WaterRatioPanel = ({ openModal }) => {
   //   const { waterServings } = useWaterSelector(); // [] item
   //   const { currentServing } = useWaterSelector(); // порція
   //   const { user } = useAuthSelector(); // user {... dailyNorm}
@@ -62,11 +62,7 @@ const WaterRatioPanel = () => {
           </div>
         </div>
       </div>
-      <button
-        className={css.btn}
-        type="button"
-        onClick={() => console.log("Add Water")}
-      >
+      <button className={css.btn} type="button" onClick={openModal}>
         Add Water
       </button>
     </div>

@@ -1,0 +1,17 @@
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.radioWrapper {
+  display: flex;
+  gap: 24px;
+}
+.container {
+  margin-bottom: 16px;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

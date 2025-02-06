@@ -1,0 +1,42 @@
+.wrapper {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 8px;
+}
+
+.lebel.bold {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.field {
+  border-radius: 6px;
+  border: 1px solid var(--secondary-color-light-blue200);
+  padding: 12px 10px;
+  box-sizing: border-box;
+  outline: none;
+  color: var(--primary-color-blue);
+}
+
+.field::placeholder {
+  color: var(--secondary-color-light-blue300);
+}
+
+.field:focus {
+  border: 1px solid var(--secondary-color-light-blue200);
+}
+
+.field.error {
+  border-color: var(--secondary-color-red);
+  color: var(--secondary-color-red);
+}
+
+.errorText {
+  font-size: 14px;
+  color: var(--secondary-color-red);
+  margin-top: 4px;
+}
