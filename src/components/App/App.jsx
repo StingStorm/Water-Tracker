@@ -30,7 +30,8 @@ function App() {
             <Route
               index
               element={
-                <PrivateRoute component={<HomePage />} redirectTo="/welcome" />
+              <HomePage/>
+                // <PrivateRoute component={<HomePage />} redirectTo="/welcome" />
               }
             />
 
