@@ -69,6 +69,7 @@
     background-color: #9EBBFF;
     color: white;
 }
+
 .amountOfWaterLabel {
     padding: 10px 20px;
     background-color: #dbe7fe;
@@ -83,14 +84,14 @@
     background-color: #c5d9fd;
 }
 
-.buttonCircleContainer{
+.buttonCircleContainer {
     display: flex;
     align-items: center;
     gap: 10px;
     margin: 10px 0;
 }
 
-.formTextLabel{
+.formTextLabel {
     font-size: 16px;
 }
 
@@ -111,7 +112,7 @@
     transition: border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.inputField:active,.inputField:focus{
+.inputField:active, .inputField:focus {
     border: 1px solid #c5d9fd;
 }
 
@@ -127,7 +128,7 @@
     margin-bottom: 10px;
 }
 
-.formItemBlock{
+.formItemBlock {
     margin-bottom: 30px;
 }
 
@@ -167,7 +168,7 @@
     height: 26px;
 }
 
-.errorMessage{
+.errorMessage {
     color: var(--secondary-color-red);
     font-size: 14px;
     margin-top: 5px;
@@ -197,10 +198,12 @@
     .modalContent {
         width: 592px;
     }
+
     .buttonGroup {
         flex-direction: row-reverse;
         justify-content: end;
     }
+
     .logoutBtn,
     .cancelBtn {
         max-width: 160px;
@@ -210,5 +213,28 @@
 @media (min-width: 1440px) {
     .buttonGroup {
         justify-content: start;
+    }
+}
+
+
+@media (max-width: 320px) {
+    .modalFooter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .inputField {
+        width: 50%;
+    }
+
+    .saveButton{
+      width: 256px;
+    }
+    .labelTime{
+        max-width: 230px;
     }
 }
