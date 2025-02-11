@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Loader from "../Loader/Loader";
 import css from "./Button.module.css";
 
 const Button = ({
@@ -7,6 +8,7 @@ const Button = ({
   className,
   type = "button",
   onClick,
+  isLoading = false,
   children,
 }) => {
   const buttonStyle = clsx(
@@ -16,16 +18,19 @@ const Button = ({
     variant === "cancel" && css.buttonCancel,
     className && className
   );
+
   return (
     <button
       type={type}
       className={buttonStyle}
       style={{ width }}
       onClick={onClick}
+      disabled={isLoading}
     >
-      {children}
+      {isLoading ? <Loader /> : children}
     </button>
   );
 };
 
 export default Button;
+
