@@ -22,7 +22,6 @@ const MonthStatsListItem = ({
     const cords = el.getBoundingClientRect();
     const elHeight = el.closest("li").offsetHeight;
     const elWidth = el.closest("li").offsetWidth;
-    const listCords = el.closest("ul").getBoundingClientRect();
     const currentDay = Number(el.childNodes[0].data);
 
     setIsShowModal(true);
@@ -33,7 +32,6 @@ const MonthStatsListItem = ({
       currentElHeight: elHeight,
       currentElWidth: elWidth,
       currentDay: currentDay,
-      listCords: listCords,
       stats: stats[0] || {
         pastDate: getCurrentMonth() + "-" + currentDay.toString(),
       },

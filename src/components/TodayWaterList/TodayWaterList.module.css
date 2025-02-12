@@ -15,24 +15,30 @@
 
 .list {
   display: flex;
-  overflow: auto;
+  /* overflow: auto; */
   gap: 12px;
   flex-direction: column;
   width: auto;
+  /* scroll-behavior: smooth; */
+}
+
+.contentWrapper {
+  overflow: auto;
   scroll-behavior: smooth;
+  height: 188px;
 }
 
 .emptyListMsg {
   text-align: center;
   line-height: 1.3;
-  color: var(--primary-color-blue);
+  color: var(--primary-color-black);
 }
 
-.list::-webkit-scrollbar {
+.contentWrapper::-webkit-scrollbar {
   width: 4px;
 }
 
-.list::-webkit-scrollbar-track {
+.contentWrapper::-webkit-scrollbar-track {
   background: var(--secondary-color-light-blue200);
   border-radius: 8px;
   width: 4px;
@@ -41,13 +47,13 @@
   background-clip: padding-box;
 }
 
-.list::-webkit-scrollbar-thumb {
+.contentWrapper::-webkit-scrollbar-thumb {
   width: 4px;
   background: transparent;
   border-radius: 8px;
 }
 
-.container:hover > .list::-webkit-scrollbar-thumb {
+.container:hover > .contentWrapper::-webkit-scrollbar-thumb {
   background: var(--secondary-color-light-blue300);
 }
 
@@ -98,6 +104,10 @@
   .emptyListMsg {
     font-size: 20px;
     text-align: center;
+  }
+
+  .contentWrapper {
+    height: 168px;
   }
 
   .button {

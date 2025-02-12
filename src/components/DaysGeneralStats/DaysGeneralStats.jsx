@@ -8,14 +8,8 @@ const DaysGeneralStats = ({ isOpen, modalData, setIsShowModal, month }) => {
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
   const targetRef = useRef(null);
 
-  const {
-    cords,
-    listCords,
-    currentElHeight,
-    currentElWidth,
-    currentDay,
-    stats,
-  } = modalData;
+  const { cords, currentElHeight, currentElWidth, currentDay, stats } =
+    modalData;
 
   const styles = {
     height: "188px",
@@ -29,9 +23,9 @@ const DaysGeneralStats = ({ isOpen, modalData, setIsShowModal, month }) => {
       styles.left = "50%";
       styles.transform = "translateX(-50%)";
 
-      cords.top > parseInt(styles.height) + 14
+      cords.top > parseInt(styles.height)
         ? (styles.top =
-            cords.top - parseInt(styles.height) - `${popupRange}` + "px")
+            cords.top - parseInt(styles.height) - `${popupRange}` - 2 + "px")
         : (styles.top = cords.top + currentElHeight + `${popupRange}` + "px");
     }
     if (isTablet) {
@@ -39,12 +33,13 @@ const DaysGeneralStats = ({ isOpen, modalData, setIsShowModal, month }) => {
       styles.transform = "translateX(0)";
       styles.top = cords.top - parseInt(styles.height) + "px";
 
-      (currentDay <= 5) |
-      (currentDay >= 11 && currentDay <= 15) |
-      (currentDay >= 21 && currentDay <= 25) |
+      (currentDay <= 4) |
+      (currentDay >= 11 && currentDay <= 14) |
+      (currentDay >= 21 && currentDay <= 24) |
       (currentDay === 31)
-        ? (styles.left = listCords.left - 3 + "px")
-        : (styles.left = listCords.right - parseInt(styles.width) - 6 + "px");
+        ? (styles.left = cords.left + currentElWidth / 2 + "px")
+        : (styles.left =
+            cords.right - parseInt(styles.width) - currentElWidth / 2 + "px");
     }
     if (isDesktop) {
       styles.width = "292px";
