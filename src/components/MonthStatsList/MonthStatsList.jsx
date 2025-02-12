@@ -9,7 +9,6 @@ const MonthStatsList = ({ days, month, monthStats, getCurrentMonth }) => {
     cords: null,
     currentElHeight: null,
     currentElWidth: null,
-    listCords: null,
     currentDay: null,
     stats: null,
   });
