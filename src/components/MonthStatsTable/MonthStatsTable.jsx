@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useWaterSelector } from "../../hooks/useWaterSelector";
+import { useDebouncedCallback } from "use-debounce";
 import MonthStatsList from "../MonthStatsList/MonthStatsList";
 import MonthStatsBar from "../MonthStatsBar/MonthStatsBar";
 import { waterOperations } from "../../redux";
@@ -22,9 +23,13 @@ const MonthStatsTable = () => {
     [year, month]
   );
 
-  useEffect(() => {
+  const debouncedFetchHandler = useDebouncedCallback(() => {
     dispatch(waterOperations.fetchWaterMonthStats(getCurrentMonth()));
-  }, [dispatch, getCurrentMonth]);
+  }, 300);
+
+  useEffect(() => {
+    debouncedFetchHandler();
+  }, [debouncedFetchHandler, month]);
 
   const numberOfDays = new Date(year, month, 0).getDate();
   const days = [...Array(numberOfDays).keys()].map((i) => i + 1);
