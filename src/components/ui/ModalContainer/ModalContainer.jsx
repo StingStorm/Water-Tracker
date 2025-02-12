@@ -16,7 +16,8 @@ const ModalContainer = ({
       className={className}
       overlayClassName={overlayClassName}
       onRequestClose={onClose}
-      bodyOpenClassName={css.ReactModal__Body}
+      onAfterOpen={() => (document.body.style.overflow = "hidden")}
+      onAfterClose={() => (document.body.style.overflow = "unset")}
     >
       {children}
     </Modal>
