@@ -1,6 +1,5 @@
-import clsx from "clsx";
-import css from "./MonthStatsListItem.module.css";
-import { useWaterSelector } from "../../hooks/useWaterSelector";
+import clsx from 'clsx';
+import css from './MonthStatsListItem.module.css';
 
 const MonthStatsListItem = ({
   day,
@@ -10,18 +9,16 @@ const MonthStatsListItem = ({
   setModalData,
   setIsShowModal,
 }) => {
-  const { isLoading } = useWaterSelector();
-
   const stats = getDayWithStats(day);
   const isCurrentDay =
-    new Date().toISOString().split("T")[0] ===
-    getCurrentMonth() + "-" + day.toString().padStart(2, 0);
+    new Date().toISOString().split('T')[0] ===
+    getCurrentMonth() + '-' + day.toString().padStart(2, 0);
 
-  const onShowModal = (e) => {
+  const onShowModal = e => {
     const el = e.target;
     const cords = el.getBoundingClientRect();
-    const elHeight = el.closest("li").offsetHeight;
-    const elWidth = el.closest("li").offsetWidth;
+    const elHeight = el.closest('li').offsetHeight;
+    const elWidth = el.closest('li').offsetWidth;
     const currentDay = Number(el.childNodes[0].data);
 
     setIsShowModal(true);
@@ -33,7 +30,7 @@ const MonthStatsListItem = ({
       currentElWidth: elWidth,
       currentDay: currentDay,
       stats: stats[0] || {
-        pastDate: getCurrentMonth() + "-" + currentDay.toString(),
+        pastDate: getCurrentMonth() + '-' + currentDay.toString(),
       },
     });
   };
@@ -44,13 +41,10 @@ const MonthStatsListItem = ({
         <div
           className={clsx(
             css.box,
-            !isLoading &&
-              parseInt(stats[0]?.percentage) < 100 &&
+            parseInt(stats[0]?.percentage) < 100 &&
               stats?.length > 0 &&
               css.alterBoxBorder,
-            !isLoading &&
-              parseInt(stats[0]?.percentage) >= 100 &&
-              css.completeBoxBorder,
+            parseInt(stats[0]?.percentage) >= 100 && css.completeBoxBorder,
             isCurrentDay && css.currentDay
           )}
           onClick={onShowModal}
@@ -58,7 +52,7 @@ const MonthStatsListItem = ({
           {day}
         </div>
         <span className={css.text}>
-          {stats?.length > 0 ? stats[0].percentage : "0%"}
+          {stats?.length > 0 ? stats[0].percentage : '0%'}
         </span>
       </div>
     </>
