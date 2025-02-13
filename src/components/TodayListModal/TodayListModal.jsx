@@ -11,6 +11,7 @@ import {
   updateWaterEntrie,
 } from '../../redux/water/operations.js';
 import TodayListModalHeaderLabel from '../TodayListModalHeaderLabel/TodayListModalHeaderLabel.jsx';
+import toast from 'react-hot-toast';
 
 const validationSchemas = Yup.object({
   waterVolume: Yup.number()
@@ -131,26 +132,36 @@ const TodayListModal = ({
               initialValues={initialValues}
               enableReinitialize
               validationSchema={validationSchemas}
-              onSubmit={(values, { setSubmitting }) => {
+              onSubmit={async (values, { setSubmitting }) => {
                 let { time, waterVolume } = values;
                 time = moment(time, 'HH:mm').format('YYYY-MM-DDTHH:mm');
                 if (waterEntry != null) {
-                  dispatch(
-                    updateWaterEntrie({
-                      entrieId: waterEntry._id,
-                      entrieData: {
-                        newTime: time,
-                        waterVolume: Number(waterVolume),
-                      },
-                    })
-                  );
+                  try {
+                    await dispatch(
+                      updateWaterEntrie({
+                        entrieId: waterEntry._id,
+                        entrieData: {
+                          newTime: time,
+                          waterVolume: Number(waterVolume),
+                        },
+                      })
+                    ).unwrap();
+                    toast.success('Water serving note successfully updated');
+                  } catch (error) {
+                    toast.error(error);
+                  }
                 } else {
-                  dispatch(
-                    addWaterEntrie({
-                      time,
-                      waterVolume: Number(waterVolume),
-                    })
-                  );
+                  try {
+                    await dispatch(
+                      addWaterEntrie({
+                        time,
+                        waterVolume: Number(waterVolume),
+                      })
+                    ).unwrap();
+                    toast.success('Water serving note successfully created');
+                  } catch (error) {
+                    toast.error(error);
+                  }
                 }
 
                 handleVisibleForm();
