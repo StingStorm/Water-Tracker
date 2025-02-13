@@ -1,16 +1,22 @@
-import { useDispatch } from "react-redux";
-import { deleteWaterEntrie } from "../../redux/water/operations.js";
-import ModalContainer from "../ui/ModalContainer/ModalContainer.jsx";
-import Icon from "../ui/Icon.jsx";
-import Button from "../ui/Button/Button.jsx";
-import css from "./DeleteWaterModal.module.css";
+import { useDispatch } from 'react-redux';
+import { deleteWaterEntrie } from '../../redux/water/operations.js';
+import ModalContainer from '../ui/ModalContainer/ModalContainer.jsx';
+import Icon from '../ui/Icon.jsx';
+import Button from '../ui/Button/Button.jsx';
+import css from './DeleteWaterModal.module.css';
+import toast from 'react-hot-toast';
 
 const DeleteWaterModal = ({ isOpen, onClose, id }) => {
   const dispatch = useDispatch();
 
-  const handleDeleteWater = () => {
-    dispatch(deleteWaterEntrie(id));
-    onClose();
+  const handleDeleteWater = async () => {
+    try {
+      await dispatch(deleteWaterEntrie(id)).unwrap();
+      toast.success('Water serving note successfully deleted');
+      onClose();
+    } catch (error) {
+      toast.error(error);
+    }
   };
 
   return (
